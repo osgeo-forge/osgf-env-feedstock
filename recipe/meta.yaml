@@ -1,0 +1,35 @@
+{% set version = "1.0.0" %}
+
+package:
+  name: osgf-env
+  version: {{ version }}
+
+source:
+  - path: .
+
+build:
+  number: 1000
+
+requirements:
+  build:
+  host:
+  run:
+
+test:
+  commands:
+    - if not exist "%LIBRARY_BIN%\\osgf_env.bat" exit 1  # [win]
+    - if not exist "%LIBRARY_BIN%\\o4w_env.bat" exit 1  # [win]
+    - if not exist "%LIBRARY_BIN%\\py3_env.bat" exit 1  # [win]
+    - if not exist "%LIBRARY_BIN%\\qt5_env.bat" exit 1  # [win]
+
+about:
+  home: https://github.com/osgeo-forge
+  license: BSD
+  summary: OSGeo-Forge environ files
+  description: |
+    Environ files to aid wrapper scripts and for parity with OSGeo4W.
+  dev_url: https://github.com/osgeo-forge/osgf-env-feedstock
+
+extra:
+  recipe-maintainers:
+    - dakcarto
