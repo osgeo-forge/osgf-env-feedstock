@@ -30,6 +30,9 @@ set "LIBRARY_INC=%LIBRARY_PREFIX%\include"
 set "LIBRARY_LIB=%LIBRARY_PREFIX%\lib"
 set "SCRIPTS=%CONDA_PREFIX%\Scripts"
 
+REM Unix style path separators, for CMake, etc.
+set CONDA_ROOT=%CONDA_PREFIX:\=/%
+
 REM Load the prefix's environment
 if exist "%CONDA_PREFIX%\Scripts\activate.bat" (
 
