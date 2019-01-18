@@ -57,7 +57,7 @@ if exist "%CONDA_PREFIX%\Scripts\activate.bat" (
 
   REM Load activate scripts
   if exist "%LIBRARY_PREFIX%\etc\conda\activate.d" (
-    for %%f in ("%LIBRARY_PREFIX%\etc\conda\activate.d\*.bat") do call "%%f"
+    for %%G in ("%LIBRARY_PREFIX%\etc\conda\activate.d\*.bat") do call "%%G"
   )
 
 )
