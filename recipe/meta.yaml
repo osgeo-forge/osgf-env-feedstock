@@ -8,7 +8,7 @@ source:
   - path: .
 
 build:
-  number: 1003
+  number: 1004
 
 requirements:
   build:
@@ -22,6 +22,7 @@ test:
     - if not exist "%LIBRARY_BIN%\\grass_env.bat" exit 1  # [win]
     - if not exist "%LIBRARY_BIN%\\py3_env.bat" exit 1  # [win]
     - if not exist "%LIBRARY_BIN%\\qt5_env.bat" exit 1  # [win]
+    - if not exist "%LIBRARY_BIN%\\reactivate_env.bat" exit 1  # [win]
 
 about:
   home: https://github.com/osgeo-forge

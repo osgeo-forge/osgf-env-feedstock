@@ -10,7 +10,7 @@ popd
 
 :: Ensure a *.bat files can be found
 
-set "CONDA_ACTIVATE_D=%LIBRARY_PREFIX%\etc\conda\activate.d"
+set "CONDA_ACTIVATE_D=%PREFIX%\etc\conda\activate.d"
 if not exist "%CONDA_ACTIVATE_D%" md "%CONDA_ACTIVATE_D%"
 copy /y dummy.bat "%CONDA_ACTIVATE_D%"
 
