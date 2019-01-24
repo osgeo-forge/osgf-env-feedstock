@@ -1,16 +1,8 @@
 @echo off
-REM Make parent of this script location our current directory,
-REM converting UNC path to drive letter if needed
-if "%LIBRARY_PREFIX%" == "" (
-  pushd "%~dp0"
-    cd ..
-    set "LIBRARY_PREFIX=%CD%"
-  popd
-)
-if "%LIBRARY_PREFIX_SHORT%" == "" (
-  REM Set LIBRARY_PREFIX to short path version
-  for %%i in ("%LIBRARY_PREFIX%") do set LIBRARY_PREFIX_SHORT=%%~fsi
-)
+
+REM Get parent of this script, converting UNC path to drive letter if needed
+if "%LIBRARY_PREFIX%" == "" for %%a in (%~dp0\..) do set LIBRARY_PREFIX=%%~fa
+if "%LIBRARY_PREFIX_SHORT%" == "" for %%i in ("%LIBRARY_PREFIX%") do set LIBRARY_PREFIX_SHORT=%%~fsi
 
 if "%ACTIVATED_GRASS_ENV%" == "1" goto :EOF
 
@@ -29,7 +21,7 @@ if exist %GRASS_PARENT_DIR% (
   popd
 
   if not "%GISBASE_DIR%"=="" if exist %GRASS_PARENT_DIR%\%GISBASE_DIR% (
-    set GRASS_ROOT=%GRASS_PARENT_DIR:\=/%/%GISBASE_DIR%
+    set GRASS_PREFIX_POSIX=%GRASS_PARENT_DIR:\=/%/%GISBASE_DIR%
     call %GRASS_PARENT_DIR%\%GISBASE_DIR%\etc\env.bat
   )
 
