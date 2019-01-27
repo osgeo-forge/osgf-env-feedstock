@@ -6,7 +6,7 @@ if "%CONDA_ROOT_SHORT%" == "" for %%i in ("%CONDA_ROOT%") do set CONDA_ROOT_SHOR
 
 if "%ACTIVATED_PY3_ENV%" == "1" goto :EOF
 
-REM Maybe inherit %PYTHONPATH% here?
+REM Maybe inherit %PYTHONPATH% here? No, only per launch wrapper
 set PYTHONPATH=
 set "PYTHONHOME=%CONDA_ROOT%"
 path %CONDA_ROOT%;%CONDA_ROOT%\Scripts;%PATH%

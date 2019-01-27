@@ -8,7 +8,7 @@ source:
   - path: .
 
 build:
-  number: 1007
+  number: 1008
 
 requirements:
   build:
@@ -19,7 +19,6 @@ test:
   commands:
     - if not exist "%LIBRARY_BIN%\\osgf_env.bat" exit 1  # [win]
     - if not exist "%LIBRARY_BIN%\\o4w_env.bat" exit 1  # [win]
-    - if not exist "%LIBRARY_BIN%\\grass_env.bat" exit 1  # [win]
     - if not exist "%LIBRARY_BIN%\\py3_env.bat" exit 1  # [win]
     - if not exist "%LIBRARY_BIN%\\qt5_env.bat" exit 1  # [win]
     - if not exist "%LIBRARY_BIN%\\reactivate_env.bat" exit 1  # [win]
