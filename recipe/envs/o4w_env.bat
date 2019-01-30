@@ -1,13 +1,13 @@
 @echo off
 
 REM Get parent of this script, converting UNC path to drive letter if needed
-if "%LIBRARY_PREFIX%" == "" for %%a in (%~dp0\..) do set LIBRARY_PREFIX=%%~fa
+for %%a in (%~dp0\..) do set LIBRARY_PREFIX=%%~fa
 if "%LIBRARY_PREFIX_SHORT%" == "" for %%i in ("%LIBRARY_PREFIX%") do set LIBRARY_PREFIX_SHORT=%%~fsi
 if "%LIBRARY_PREFIX_POSIX%" == "" set LIBRARY_PREFIX_POSIX=%LIBRARY_PREFIX:\=/%
 if "%LIBRARY_PREFIX_SHORT_POSIX%" == "" set LIBRARY_PREFIX_SHORT_POSIX=%LIBRARY_PREFIX_SHORT:\=/%
 
 REM Get grandparent of this script, converting UNC path to drive letter if needed
-if "%CONDA_ROOT%" == "" for %%a in ("%LIBRARY_PREFIX%\..") do set CONDA_ROOT=%%~fa
+for %%a in ("%LIBRARY_PREFIX%\..") do set CONDA_ROOT=%%~fa
 if "%CONDA_ROOT_SHORT%" == "" for %%i in ("%CONDA_ROOT%") do set CONDA_ROOT_SHORT=%%~fsi
 if "%CONDA_ROOT_POSIX%" == "" set CONDA_ROOT_POSIX=%CONDA_ROOT:\=/%
 if "%CONDA_ROOT_SHORT_POSIX%" == "" set CONDA_ROOT_SHORT_POSIX=%CONDA_ROOT_SHORT:\=/%
