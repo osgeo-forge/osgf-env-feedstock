@@ -43,9 +43,10 @@ if "%SCRIPTS%" == "" set "SCRIPTS=%CONDA_ROOT%\Scripts"
 REM Load the prefix's environment
 if exist "%CONDA_ROOT_SHORT%\Scripts\activate.bat" (
 
+  set ACTIVATED_OSGF_ENV=1
   REM Load conda env via prefix, since conda package appears to be installed
+  REM NOTE: this appears to exit this script, so ACTIVATED_OSGF_ENV is set first
   "%CONDA_ROOT_SHORT%\Scripts\activate.bat" "%CONDA_ROOT%"
-  goto end
 
 ) else (
 
@@ -63,7 +64,7 @@ if exist "%CONDA_ROOT_SHORT%\Scripts\activate.bat" (
   if "%STDLIB_DIR%" == "" set "STDLIB_DIR=%CONDA_ROOT_SHORT%\Lib"
   if "%SP_DIR%" == "" set "SP_DIR=%CONDA_ROOT_SHORT%\Lib\site-packages"
 
-  path "%CONDA_ROOT%;%LIBRARY_PREFIX%\mingw-w64\bin;%LIBRARY_PREFIX%\usr\bin;%LIBRARY_PREFIX%\bin;%CONDA_ROOT%\Scripts;%PATH%"
+  set "PATH=%CONDA_ROOT%;%LIBRARY_PREFIX%\mingw-w64\bin;%LIBRARY_PREFIX%\usr\bin;%LIBRARY_PREFIX%\bin;%CONDA_ROOT%\Scripts;%PATH%"
 
 )
 
@@ -74,7 +75,5 @@ if exist "%LIBRARY_PREFIX%\bin\reactivate_env.bat" call "%LIBRARY_PREFIX%\bin\re
 
 REM ###### Stop manipulating env ##########
 
-
-:end
 
 set ACTIVATED_OSGF_ENV=1
