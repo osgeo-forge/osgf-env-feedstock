@@ -70,6 +70,9 @@ if exist "%CONDA_ROOT_SHORT%\Scripts\activate.bat" (
 
 :reactivate
 
+REM Activation scripts expect CONDA_PREFIX
+if "%CONDA_PREFIX%" == "" set "CONDA_PREFIX=%CONDA_ROOT%"
+
 REM Load activate scripts
 if exist "%LIBRARY_PREFIX%\bin\reactivate_env.bat" call "%LIBRARY_PREFIX%\bin\reactivate_env.bat"
 
